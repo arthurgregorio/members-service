@@ -1,0 +1,42 @@
+spring:
+  main:
+    banner-mode: off
+  application.name: members-service
+  jmx.enabled: false
+
+  datasource:
+    url: jdbc:postgresql://localhost:5433/members
+    username: sa_members
+    password: sa_members
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+
+  jackson:
+    default-property-inclusion: non_null
+    deserialization:
+      read_unknown_enum_values_as_null: true
+
+server:
+  port: 8085
+  servlet:
+    encoding:
+      enabled: true
+      force: true
+      charset: UTF-8
+
+logging:
+  file:
+    name: /${user.home}/${spring.application.name}/${spring.application.name}.log
+  level:
+    root: INFO
+    org.hibernate: INFO
+    org.springframework: INFO
+    org.springframework.web: INFO
+    org.springframework.security: INFO
+    org.springframework.context.support: INFO
+
+application:
+  rest-countries-url: https://restcountries.com

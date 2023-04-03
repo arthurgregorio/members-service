@@ -1,0 +1,10 @@
+{
+  "name": "The member",
+  "salary": 10,
+  "country": "Brasil",
+  "role": "Software Engineer",
+  "tags": [
+    "Java",
+    "Backend"
+  ]
+}

@@ -1,0 +1,25 @@
+version: "3.7"
+
+services:
+  postgres:
+    container_name: members-database
+    image: postgres:13-alpine
+    ports:
+      - "5433:5432"
+    environment:
+      - POSTGRES_DB=members
+      - POSTGRES_USER=sa_members
+      - POSTGRES_PASSWORD=sa_members
+    command: [ "postgres", "-c", "log_statement=all", "-c", "log_destination=stderr" ]
+    volumes:
+      - data-postgres:/var/lib/postgresql/data
+    networks:
+      - default
+
+volumes:
+  data-postgres:
+    driver: local
+
+networks:
+  default:
+    driver: bridge
